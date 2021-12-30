@@ -10,11 +10,14 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="mulesoft-git-testFlow" doc:id="65292880-cc99-4517-8ebd-100acdb459aa" >
 		<http:listener doc:name="Listener" doc:id="b602cf25-18bc-45a3-9a0d-c437112677a6" config-ref="HTTP_Listener_config" path="/*"/>
-		<ee:transform doc:name="Transform Message" doc:id="5fed9b60-3ca2-48db-a69d-5562eb1ba90d" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[
+		<flow-ref doc:name="Flow Reference" doc:id="66d8c90f-2d6c-4b16-9948-0313c5fe6723" name="mulesoft-git-testSub_Flow"/>
+	</flow>
+	<sub-flow name="mulesoft-git-testSub_Flow" doc:id="4b418577-8ca1-476a-bdf4-b5de28ac29db" >
+		<ee:transform doc:name="Transform Message" doc:id="5fed9b60-3ca2-48db-a69d-5562eb1ba90d">
+			<ee:message>
+				<ee:set-payload><![CDATA[
 "Hello world"]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-	</flow>
+	</sub-flow>
 </mule>

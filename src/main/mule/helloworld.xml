@@ -12,6 +12,5 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 "Hello world"]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="8384a924-4b73-4623-bda8-dab359653a09" message="This is helloworld flow"/>
 	</sub-flow>
 </mule>

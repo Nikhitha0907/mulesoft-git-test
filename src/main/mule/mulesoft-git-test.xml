@@ -8,8 +8,12 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="183714f0-b8c5-4071-9e79-794e86a09dd0" >
 		<http:listener-connection host="localhost" port="8088" />
 	</http:listener-config>
+	<flow name="mulesoft-git-testFlow1" doc:id="6767da85-5499-4e46-b547-f7f93b62a800" >
+		<http:listener doc:name="Listener" doc:id="57253935-86fc-4850-a7c6-2641e5b96da3" config-ref="HTTP_Listener_config" path="/getworld" allowedMethods="GET"/>
+		<flow-ref doc:name="Flow Reference" doc:id="58e7a280-f200-4bbe-9271-44fa9755bc80" name="getworldFlow"/>
+	</flow>
 	<flow name="mulesoft-git-testFlow" doc:id="65292880-cc99-4517-8ebd-100acdb459aa" >
-		<http:listener doc:name="Listener" doc:id="b602cf25-18bc-45a3-9a0d-c437112677a6" config-ref="HTTP_Listener_config" path="/*"/>
+		<http:listener doc:name="Listener" doc:id="b602cf25-18bc-45a3-9a0d-c437112677a6" config-ref="HTTP_Listener_config" path="/helloworld" allowedMethods="POST"/>
 		<flow-ref doc:name="Flow Reference" doc:id="66d8c90f-2d6c-4b16-9948-0313c5fe6723" name="hello-worl-flow"/>
 	</flow>
 </mule>

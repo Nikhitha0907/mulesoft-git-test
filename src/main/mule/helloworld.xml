@@ -5,11 +5,12 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="183714f0-b8c5-4071-9e79-794e86a09dd0" >
-		<http:listener-connection host="localhost" port="8088" />
-	</http:listener-config>
-	<flow name="mulesoft-git-testFlow" doc:id="65292880-cc99-4517-8ebd-100acdb459aa" >
-		<http:listener doc:name="Listener" doc:id="b602cf25-18bc-45a3-9a0d-c437112677a6" config-ref="HTTP_Listener_config" path="/*"/>
-		<flow-ref doc:name="Flow Reference" doc:id="66d8c90f-2d6c-4b16-9948-0313c5fe6723" name="hello-worl-flow"/>
-	</flow>
+	<sub-flow name="hello-worl-flow" doc:id="9047bd59-16d2-47b6-b099-dc189740cee3" >
+		<ee:transform doc:name="Copy_of_Transform Message" doc:id="07237de3-2fc7-4fa9-9e28-4a546210935c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[
+"Hello world"]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</sub-flow>
 </mule>

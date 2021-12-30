@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd"></mule>
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="183714f0-b8c5-4071-9e79-794e86a09dd0" >
+		<http:listener-connection host="localhost" port="8088" />
+	</http:listener-config>
+	<flow name="mulesoft-git-testFlow" doc:id="65292880-cc99-4517-8ebd-100acdb459aa" >
+		<http:listener doc:name="Listener" doc:id="b602cf25-18bc-45a3-9a0d-c437112677a6" config-ref="HTTP_Listener_config" path="/*"/>
+		<ee:transform doc:name="Transform Message" doc:id="5fed9b60-3ca2-48db-a69d-5562eb1ba90d" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[
+"Hello world"]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

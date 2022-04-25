@@ -1,3 +1,46 @@
-{
-  "minMuleVersion": "4.4.0"
-}
+Each implementation template relies on services or data in order to function.
+
+Please review the use cases described on the [MuleSoft Accelerator for Retail](https://anypoint.mulesoft.com/exchange/701dca15-d8ec-43c6-b9ca-a415b09b8c5b/mulesoft-accelerator-for-retail/) solution pages for more information about dependencies on other APIs and services.
+
+The following example shows how to create Loyalty and Subscription records in a Snowflake instance.
+
+### Prerequisite set up
+
+1. Create a Snowflake instance (account). Go to the **Classic Console** to create a database, schema, and load a table.
+<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-1.png" alt="Snowflake Classic Console screenshot" width="399" /><br><br>
+1. To create a database, click **Database > Create a new database**.
+<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-2.png" alt="Create a database in Snowflake screenshot" width="399" /><br><br>
+1. Enter `RETAIL_DB` as the name and click **Finish**.
+<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-3.png" alt="Name the new database in Snowflake screenshot" width="399" /><br><br>
+1. To create a schema, click **RETAIL_DB > Schemas > Create a new schema**.
+<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-4.png" alt="Create a schema in Snowflake screenshot" width="399" /><br><br>
+1. Enter `CUSTOMER` as the schema name and click **Finish**.
+<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-5.png" alt="Name a new schema in Snowflake screenshot" width="399" /><br><br>
+1. To create a table, click **Tables > Create a table > Schema Name > Add Column names > Finish**.<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-6.png" alt="Create a table in Snowflake screenshot" width="399" /><br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-7.png" alt="Add columns to a table in Snowflake screenshot" width="399" /><br><br>
+1. Click the table name and load any desired mock data by clicking **Load Table**:<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-8.png" alt="Load data into a table in Snowflake screenshot" width="399" /><br><br>
+    a. In the **Warehouse** tab, select the **Warehouse** and click **Next**.
+   <br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-9.png" alt="Select the warehouse for loading files in Snowflake screenshot" width="399" /><br><br>
+    b. In the **Source Files** tab, select **Load files from your computer**, click **Select Files**, select the files to upload and click **Next**.
+ <br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-10.png" alt="Load local source files into Snowflake screenshot" width="399" />
+ <br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-11.png" alt="Selected file information for loading into Snowflake screenshot" width="399" /><br><br>
+    c. In the **Load Options** tab, select the location from which to load files, such as **Continue loading valid data from the file** and click **Next**.
+<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-12.png" alt="Continue loading valid data option from the file in Snowflake screenshot" width="399" /><br><br>
+    d. View the load results and click **OK**.
+<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-13.png" alt="View file loaded results rows parsed and loaded into Snowflake screenshot" width="399" /><br><br>
+1. To view the loaded data, run a SQL query from **Worksheet**:<br><br>
+<img src="https://www.mulesoft.com/ext/solutions/draft/images/rcg-snowflake-setup-guide-14.png" alt="Run a query on the new table in a Snowflake worksheet screenshot" width="399" /><br><br>
+
+**Note**: Tables can also be created by running SQL queries in `src/main/resources/snowflake_queries.txt`.
